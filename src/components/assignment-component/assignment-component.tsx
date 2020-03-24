@@ -14,6 +14,7 @@ export class AssignmentComponent {
         <p class={{ important: this.bold }}>
           <slot></slot>
         </p>
+        <my-cta-button text="do that action"></my-cta-button>
       </Host>
     );
   }

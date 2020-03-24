@@ -27,6 +27,9 @@ export namespace Components {
     */
     'middle': string;
   }
+  interface MyCtaButton {
+    'text': string | "default text";
+  }
 }
 
 declare global {
@@ -43,9 +46,16 @@ declare global {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
+
+  interface HTMLMyCtaButtonElement extends Components.MyCtaButton, HTMLStencilElement {}
+  var HTMLMyCtaButtonElement: {
+    prototype: HTMLMyCtaButtonElement;
+    new (): HTMLMyCtaButtonElement;
+  };
   interface HTMLElementTagNameMap {
     'my-assignment-component': HTMLMyAssignmentComponentElement;
     'my-component': HTMLMyComponentElement;
+    'my-cta-button': HTMLMyCtaButtonElement;
   }
 }
 
@@ -67,10 +77,14 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
+  interface MyCtaButton {
+    'text'?: string | "default text";
+  }
 
   interface IntrinsicElements {
     'my-assignment-component': MyAssignmentComponent;
     'my-component': MyComponent;
+    'my-cta-button': MyCtaButton;
   }
 }
 
@@ -82,6 +96,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'my-assignment-component': LocalJSX.MyAssignmentComponent & JSXBase.HTMLAttributes<HTMLMyAssignmentComponentElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+      'my-cta-button': LocalJSX.MyCtaButton & JSXBase.HTMLAttributes<HTMLMyCtaButtonElement>;
     }
   }
 }
