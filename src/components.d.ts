@@ -10,6 +10,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface MyAssignmentComponent {
+    'bold': boolean;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -29,17 +32,27 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLMyAssignmentComponentElement extends Components.MyAssignmentComponent, HTMLStencilElement {}
+  var HTMLMyAssignmentComponentElement: {
+    prototype: HTMLMyAssignmentComponentElement;
+    new (): HTMLMyAssignmentComponentElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'my-assignment-component': HTMLMyAssignmentComponentElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface MyAssignmentComponent {
+    'bold'?: boolean;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -56,6 +69,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'my-assignment-component': MyAssignmentComponent;
     'my-component': MyComponent;
   }
 }
@@ -66,6 +80,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'my-assignment-component': LocalJSX.MyAssignmentComponent & JSXBase.HTMLAttributes<HTMLMyAssignmentComponentElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }

@@ -1,18 +1,14 @@
-import { Config } from '@stencil/core';
+import { Config } from "@stencil/core";
 
 export const config: Config = {
-  namespace: 'stencil-assignment',
+  namespace: "stencil-assignment",
   outputTargets: [
     {
-      type: 'dist',
-      esmLoaderPath: '../loader'
+      type: "dist",
+      esmLoaderPath: "../loader"
     },
     {
-      type: 'docs-readme'
-    },
-    {
-      type: 'www',
-      serviceWorker: null // disable service workers
+      type: "docs-readme"
     }
   ]
 };
