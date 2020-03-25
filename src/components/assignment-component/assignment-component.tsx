@@ -8,6 +8,14 @@ import { Component, Host, h, Prop } from "@stencil/core";
 export class AssignmentComponent {
   @Prop() bold: boolean;
 
+  componentDidUnload() {
+    console.log("deleted");
+  }
+
+  componentDidLoad() {
+    console.log("created");
+  }
+
   render() {
     return (
       <Host>
