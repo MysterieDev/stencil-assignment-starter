@@ -5,10 +5,14 @@ export const config: Config = {
   outputTargets: [
     {
       type: "dist",
-      esmLoaderPath: "../loader"
+      esmLoaderPath: "../loader",
     },
     {
-      type: "docs-readme"
-    }
-  ]
+      type: "docs-readme",
+    },
+    {
+      type: "www",
+      serviceWorker: null,
+    },
+  ],
 };
